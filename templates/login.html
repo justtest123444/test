@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login System</title>
+         <!-- Cool Google Fonts -->
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  	    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/login.css') }}"> -->
+        <style>
+            html, body {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+#content_container {
+  width: 30%;
+  height: 70%;
+}
+
+#form_container {
+  width: 100%;
+  height: 100%;
+
+  background-color: #370617;
+  box-shadow: 0 0 50px -20px #000;
+  border-radius: 2%;
+
+  overflow: hidden;
+}
+
+#form_header_container {
+  width: 100%;
+  height: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+
+  padding: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+  border-bottom: 1px solid transparent;
+  border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 20;
+  background: #000;
+}
+
+#form_header {
+  display: inline-block;
+  font-size: 15px;
+  font-family: Bowlby One SC;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+
+}
+
+#form_content_container {
+  width: 100%;
+  height: 90%;
+
+  float: left;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 30px;
+}
+
+#form_content_inner_container {
+  width: 75%;
+  height: 100%;
+
+  float: left;
+
+}
+
+input {
+  width: 100%;
+  height: 40px;
+
+  padding-left: 10px;
+  margin-bottom: 20px;
+
+  background: #000;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #fff;
+  font-size: 12px;
+
+  border-bottom: 2px solid transparent;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
+  border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 1;
+}
+
+#button_container {
+  width: 100%;
+  height: 10%;
+    bottom: 0;
+    box-sizing: border-box;
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+#button_container button {
+  height: 40px;
+        width: 180px;
+        border: none;
+        border-radius: 20px;
+        background: linear-gradient(to left, #ab68ca, #de67a3); 
+        color: #fff;
+        font-weight: bolder;
+        margin-top: 30px;
+        cursor: pointer;
+        outline: none;
+}
+.psw-show .show-hide-icon
+{
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    cursor: pointer;
+    color: white;
+}
+
+        </style>
+
+    </head>
+    <body>
+      <form action="{{ url_for('get_email')}}"method="post"></form>
+        <div id="content_container">
+            <div id="form_container">
+              <div id="form_header_container">
+                <h2 id="form_header" style="color:white"> Heart Disease Prediction </h2>
+            </div>
+
+                <div id="form_content_container">
+                    <div id="form_content_inner_container">
+                        <label for="email" style="color:white"><b>Email</b></label>
+                        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                        <div style="position: relative;" class="psw-show">
+                            <label for="psw" style="color:white"><b>Password</b></label>
+                            <input type="password" placeholder="Password" name="psw" id="psw" required>
+                            <div class="show-hide-icon">
+                                <i class="fa fa-eye"></i>
+                            </div>
+                          </div>
+                        <div>
+                          <a href="{{ url_for('signup') }}" style="color: white;">Not a user? Sign up now</a>
+                        </div>
+                        
+                
+                        <div id="button_container">
+                          <!-- <button type="button" id="login_system" name="login_system" class="registerbtn">Log In</button> -->
+                          <span><a href="{{ url_for('predict_page') }}"><button>Predict</button></a></span>
+
+                        </div>
+
+                    
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+          $(document).ready(function(){
+            $(".psw-show .show-hide-icon").click(function(){
+
+              $(this).find(".fa").toggleClass("fa-eye-slash fa-eye");
+
+              $(this).parents(".psw-show").toggleClass("show");
+
+              $(".psw-show input").attr("type","password");
+              $(".psw-show.show input").attr("type","text");
+
+
+            });
+          });
+
+        </script>
+    </body>
+
+</html>
+
+<!-- <script type="module">
+  // Import the functions you need from the SDKs you need
+  import {initializeApp} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+  import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      signOut
+  } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+  import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+apiKey: "AIzaSyDXBp3clNPqc16MW6jB7S5oUfn9H7sYwNc",
+authDomain: "authentication-eff2e.firebaseapp.com",
+projectId: "authentication-eff2e",
+storageBucket: "authentication-eff2e.appspot.com",
+messagingSenderId: "97526219717",
+appId: "1:97526219717:web:9f58651f1d5860155141ac"
+};
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth();
+  const database = getDatabase(app);
+
+
+  login_system.addEventListener('click', (e) => {
+      // log in user
+      
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('psw').value;
+      signInWithEmailAndPassword(auth, email, password)
+              .then((userCredential) => {
+                  // Signed in
+                  const user = userCredential.user;
+                  // ...
+
+                  // save log in details into real time database
+                  var lgDate = new Date().toLocaleString();
+                  var str = lgDate.toString('DD/MM/YYYY HH:MM:SS');
+
+                  update(ref(database, 'users/' + user.uid), {
+                      email:window.btoa(email),
+                      password:window.btoa(password),
+                      last_login: lgDate
+                  })
+                      .then(() => {
+                          // Data saved successfully!
+                          alert('User logged in successfully')
+                          window.location.href = "{{ url_for('predict_page') }}";
+                      })
+                      .catch((error) => {
+                          // The write failed...
+                          alert(error);
+                      });
+              })
+              .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  let signInError = "Invalid Email or Password"
+                  alert(signInError);
+              });
+
+      });
+
+
+          //sign out user
+          signOut(auth).then(() => {
+              // Sign-out successful.
+          }).catch((error) => {
+              // An error happened.
+          });
+</script> -->

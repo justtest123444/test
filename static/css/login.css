@@ -1,0 +1,132 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+#content_container {
+  width: 30%;
+  height: 70%;
+}
+
+#form_container {
+  width: 100%;
+  height: 100%;
+
+  background-color: #370617;
+  box-shadow: 0 0 50px -20px #000;
+  border-radius: 2%;
+
+  overflow: hidden;
+}
+
+#form_header_container {
+  width: 100%;
+  height: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+
+  padding: 20px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+  border-bottom: 1px solid transparent;
+  border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 20;
+  background: #000;
+}
+
+#form_header {
+  display: inline-block;
+  font-size: 15px;
+  font-family: Bowlby One SC;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+
+}
+
+#form_content_container {
+  width: 100%;
+  height: 90%;
+
+  float: left;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding-top: 30px;
+}
+
+#form_content_inner_container {
+  width: 75%;
+  height: 100%;
+
+  float: left;
+
+}
+
+input {
+  width: 100%;
+  height: 40px;
+
+  padding-left: 10px;
+  margin-bottom: 20px;
+
+  background: #000;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #fff;
+  font-size: 12px;
+
+  border-bottom: 2px solid transparent;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
+  border-image: -webkit-linear-gradient(25deg, #FFBE0B, #FB5607, #FF006E, #8338EC, #3A86FF) 1;
+}
+
+#button_container {
+  width: 100%;
+  height: 10%;
+    bottom: 0;
+    box-sizing: border-box;
+    margin-top: 5px;
+
+    text-align: center;
+}
+
+#button_container button {
+  height: 40px;
+        width: 180px;
+        border: none;
+        border-radius: 20px;
+        background: linear-gradient(to left, #ab68ca, #de67a3); 
+        color: #fff;
+        font-weight: bolder;
+        margin-top: 30px;
+        cursor: pointer;
+        outline: none;
+}
+.psw-show .show-hide-icon
+{
+    position: absolute;
+    right: 10px;
+    top: 38px;
+    cursor: pointer;
+    color: white;
+}
